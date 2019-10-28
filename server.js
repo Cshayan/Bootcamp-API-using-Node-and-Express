@@ -10,8 +10,15 @@ const dotenv = require('dotenv');
 // Load environment file
 dotenv.config({ path: "./config/config.env" });
 
+// Import the routes
+const bootcampsRoute = require('./routes/bootcamps');
+
 // Init express
 const app = express();
+
+/* Route settings */
+// GET POST PUT DELETE api/v1/bootcamps
+app.use('/api/v1/bootcamps', bootcampsRoute);
 
 // Listen to server
 const PORT = process.env.PORT || 5000;
